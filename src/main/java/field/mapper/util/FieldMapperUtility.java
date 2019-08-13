@@ -39,7 +39,11 @@ public class FieldMapperUtility {
 			field.setAccessible(true);
 			FieldMapper fieldMapper = field.getAnnotation(FieldMapper.class);
 			if (fieldMapper != null) {
-				fromFieldValueMap.put(fieldMapper.name(), field);
+				if("".equals(fieldMapper.name())) {
+					fromFieldValueMap.put(field.getName(), field);
+				}else {
+					fromFieldValueMap.put(fieldMapper.name(), field);
+				}
 			}
 		}
 
@@ -47,24 +51,27 @@ public class FieldMapperUtility {
 		for (Field field : toFields) {
 			field.setAccessible(true);
 			FieldMapper fieldMapper = field.getAnnotation(FieldMapper.class);
-			if (fieldMapper != null && fromFieldValueMap.containsKey(fieldMapper.name())) {
-				Field fromField = fromFieldValueMap.get(fieldMapper.name());
-				try {
-					if (!"".equals(fieldMapper.method())) {
-						// Trying to invoke method specified in method and class attribute
-						if(fieldMapper.clazz()!=Class.class){
-							Method method = fieldMapper.clazz().getMethod(fieldMapper.method(),
-									fromField.getType());
-							field.set(objectTo, method.invoke(null, fromField.get(objectFrom)));
-						}else{
-							throw new RuntimeException("Conversion class is not defined for field: "+field.getName());
+			if (fieldMapper != null) {
+				String fieldName="".equals(fieldMapper.name())?field.getName():fieldMapper.name();
+				if (fromFieldValueMap.containsKey(fieldName)) {
+					Field fromField = fromFieldValueMap.get(fieldName);
+					try {
+						if (!"".equals(fieldMapper.method())) {
+							// Trying to invoke method specified in method and class attribute
+							if(fieldMapper.clazz()!=Class.class){
+								Method method = fieldMapper.clazz().getMethod(fieldMapper.method(),
+										fromField.getType());
+								field.set(objectTo, method.invoke(null, fromField.get(objectFrom)));
+							}else{
+								throw new RuntimeException("Conversion class is not defined for field: "+field.getName());
+							}
+						} else {
+							field.set(objectTo, fromField.get(objectFrom));
 						}
-					} else {
-						field.set(objectTo, fromField.get(objectFrom));
+					} catch (Exception e) {
+
+						throw new RuntimeException("Exception in field:"+field.getName(),e);
 					}
-				} catch (Exception e) {
-					e.printStackTrace();
-					throw new RuntimeException(e);
 				}
 			}
 		}

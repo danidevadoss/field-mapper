@@ -1,11 +1,14 @@
 package field.mapper;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+
+import java.util.Date;
+
 import org.junit.Test;
 
-import field.mapper.dto.FromClass;
-import field.mapper.dto.InvalidConversionMethod;
-import field.mapper.dto.ToClass;
+import field.mapper.conversion.DateUtilty;
+import field.mapper.dto.User;
+import field.mapper.dto.UserDto;
 import field.mapper.util.FieldMapperUtility;
 
 /**
@@ -15,39 +18,28 @@ public class FieldMapperTest {
 
 	@Test
 	public void test_copyFromOneObjectToAnotherObject_withValue() {
-		FromClass fromClass = new FromClass("10");
-		ToClass toClass = new ToClass();
-		FieldMapperUtility.copy(fromClass, toClass);
-		Assert.assertEquals(10, toClass.getNumber().intValue());
+		Date date = new Date();
+		String expectedDate=DateUtilty.dateToMmddyy(date);
+		User user = new User(1,"John Doe",date,"Y");
+		//Conversion
+		UserDto userDto=FieldMapperUtility.copy(user, UserDto.class);
+		//Assertion
+		assertEquals(1, userDto.getUserId());
+		assertEquals("John Doe", userDto.getUserName());
+		assertEquals(expectedDate, userDto.getCreatedDate());
+		assertEquals(true, userDto.isActive());
 	}
-
+	
 	@Test
-	public void test_copyFromOneObjectToAnotherObject_withoutValue() {
-		FromClass fromClass = new FromClass();
-		ToClass toClass = new ToClass();
-		FieldMapperUtility.copy(fromClass, toClass);
-		Assert.assertEquals(null, toClass.getNumber());
-	}
-
-	@Test
-	public void test_copyFromOneObjectToAnotherClass_withValues() {
-		FromClass fromClass = new FromClass("10");
-		ToClass toClass = FieldMapperUtility.copy(fromClass, ToClass.class);
-		Assert.assertEquals(10, toClass.getNumber().intValue());
-	}
-
-	@Test
-	public void test_copyFromOneObjectToAnotherClass_withoutValues() {
-		FromClass fromClass = new FromClass();
-		ToClass toClass = FieldMapperUtility.copy(fromClass, ToClass.class);
-		Assert.assertEquals(null, toClass.getNumber());
-	}
-
-	@Test(expected = RuntimeException.class)
-	public void test_methodNotAvailable_throwException() {
-		InvalidConversionMethod fromClass = new InvalidConversionMethod("test");
-		FieldMapperUtility.copy(fromClass, InvalidConversionMethod.class);
-
+	public void test_copyFromOneObjectToAnotherObject_withoutValues() {
+		User user = new User();
+		//Conversion
+		UserDto userDto=FieldMapperUtility.copy(user, UserDto.class);
+		//Assertion
+		assertEquals(0, userDto.getUserId());
+		assertEquals(null, userDto.getUserName());
+		assertEquals(null, userDto.getCreatedDate());
+		assertEquals(false, userDto.isActive());
 	}
 
 }
