@@ -127,7 +127,7 @@ _Check test package for above example._
 
 ### More logics will implemented and samples and docs will be updated...! 
 
-#### Programmers who are interested to collaborate are MOST WELCOME
+#### _Programmers who are interested to collaborate are MOST WELCOME_
 
 ## License
 [GNU](https://www.gnu.org/licenses/gpl-3.0.en.html)
