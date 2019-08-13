@@ -119,7 +119,7 @@ private UserDto userToUserDto(User user){
 return FieldMapperUtility.copy(user,UserDto.class);
 }
 ```
-## What are the constraints? How to configure?
+## How to configure?? What are the constraints?? 
 ### **_Coming Soon...!_**
 
 ---
