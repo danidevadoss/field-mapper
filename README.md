@@ -118,7 +118,7 @@ return FieldMapperUtility.copy(user,UserDto.class);
 }
 ```
 
-Please check test package for above example.
+_Check test package for above example._
 
 ### More logic will implemented and samples will be updated...!
 
