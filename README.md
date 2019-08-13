@@ -66,7 +66,7 @@ private UserDto userToUserDto(User user){
 }
 ```
 
-Yeah..! That's easy..! Here we have only four fields and code looks okay. but _what if we have many fields and most of them needs to be converted while copying to different Type object?_
+Yeah..! That's easy..! Here we have only four fields and code looks okay. but _what if we have many fields and most of them needs to be converted while copying to different object type?_
 
 Code will be long line of setters and getters and conversion methods
 
