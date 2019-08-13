@@ -1,13 +1,12 @@
 package field.mapper;
 
-import field.mapper.annotation.FieldMapper;
-import field.mapper.conversion.FieldConversions;
+import org.junit.Assert;
+import org.junit.Test;
+
 import field.mapper.dto.FromClass;
 import field.mapper.dto.InvalidConversionMethod;
 import field.mapper.dto.ToClass;
 import field.mapper.util.FieldMapperUtility;
-import org.junit.Assert;
-import org.junit.Test;
 
 /**
  * Test cases for Field mapper
