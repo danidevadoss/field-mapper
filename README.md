@@ -1,5 +1,5 @@
 # `@FieldMapper`
-###### _Simple java solution for field mapping_
+###### _A simple java solution for field mapping_
 #### An Annotation that can be used to copy properties from one object to another object with intermediate conversions.
 
 
