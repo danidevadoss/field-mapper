@@ -122,7 +122,7 @@ _Check test package for above example._
 
 ### More logic will implemented and samples will be updated...! 
 
-### Programmers who are interested to collaborate are most WELCOME
+### Programmers who are interested to collaborate are MOST WELCOME
 
 ## License
 [GNU](https://www.gnu.org/licenses/gpl-3.0.en.html)
