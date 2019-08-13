@@ -5,7 +5,7 @@
 
 The problem field mapper solves is eliminating multiple lines of code for converting one object type to another object type with intermediate conversion.
 
-Use cases can be like, when therse is need to convert entity to dto, where some field type should be converted to another type to as client requires.
+Use cases can be like, When therse is need to convert entity to dto, Where some field type should be converted to another type as client requires.
 
 Let's say we have an entity `User` and dto `UserDto` like below,
 
@@ -43,13 +43,13 @@ public class UserDto{
 }
 ```
 
-Now the need is to convert User object to UserDto object
+Now we need is to convert `User` object to `UserDto` object.
 
 ### What we typically do?
 
-1) For same data type we will used  **getter and setters** to get value for `User` and set it to `UserDto` object
-2) When we need to set `createdDate` in `UserDto`, we will use conversion method to convert date object from User object to MM-DD-YY formated string. method to convert will be in `DateUtilty.class` for reusing
-3) For `isActive` field in `UserDto` we need to convert _Y/N_ to _true/false_. we create conversion method in any class let's say `CommonUtility` and use that to convert and set the value to `UserDto`
+1) For same data type we will used  **_getter and setters_** to get value for `User` and set it to `UserDto` object.
+2) When we need to set `createdDate` in `UserDto`, we will use conversion method to convert date object from User object to MM-DD-YY formated string. method to convert will be in `DateUtilty.class` for reusing purpose.
+3) For `isActive` field in `UserDto` we need to convert _Y/N_ to _true/false_. we can create conversion method in any class, let's say `CommonUtility` and use that to convert to _true/false_ and set the value to `UserDto`.
 
 let's look at conversion code below,
 
@@ -66,12 +66,12 @@ private UserDto userToUserDto(User user){
 }
 ```
 
-Yeah..! That's easy..! Here we have only four fields and code looks okay. but _what if we have many fields and most of them needs to be converted while copying to different object type?_
+**Yeah..! That's easy..!** Here we have only four fields and code looks okay. but _what if we have many fields and most of them needs to be converted while copying to different object type?_
 
-Code will be long line of setters and getters and conversion methods
+Code will be long line of **_setters and getters-** and conversion methods
 
 ### Let's use `@FieldMapper`:
-1)Add `@FieldMapper` annotation in required fields
+1)Add `@FieldMapper` annotation in required fields.
 
 ```java
 public class User{
