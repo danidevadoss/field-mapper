@@ -43,9 +43,6 @@ public class FieldMapperTest {
 		Assert.assertEquals(null, toClass.getNumber());
 	}
 
-	/**
-	 * 
-	 */
 	@Test(expected = RuntimeException.class)
 	public void test_methodNotAvailable_throwException() {
 		InvalidConversionMethod fromClass = new InvalidConversionMethod("test");

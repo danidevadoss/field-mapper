@@ -52,9 +52,13 @@ public class FieldMapperUtility {
 				try {
 					if (!"".equals(fieldMapper.method())) {
 						// Trying to invoke method specified in method and class attribute
-						Method method = fieldMapper.clazz().getDeclaredMethod(fieldMapper.method(),
-								fromField.getType());
-						field.set(objectTo, method.invoke(null, fromField.get(objectFrom)));
+						if(fieldMapper.clazz()!=Class.class){
+							Method method = fieldMapper.clazz().getMethod(fieldMapper.method(),
+									fromField.getType());
+							field.set(objectTo, method.invoke(null, fromField.get(objectFrom)));
+						}else{
+							throw new RuntimeException("Conversion class is not defined for field: "+field.getName());
+						}
 					} else {
 						field.set(objectTo, fromField.get(objectFrom));
 					}
