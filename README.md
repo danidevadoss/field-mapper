@@ -68,7 +68,7 @@ Yeah..! That's easy..! Here we have only four fields and code looks okay. but _w
 
 Code will be long line of setters and getters and conversion methods
 
-`@FieldMapper` configuration:
+### Let's use `@FieldMapper`:
 1)Add `@FieldMapper` annotation in required fields
 
 ```java
