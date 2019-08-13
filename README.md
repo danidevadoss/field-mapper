@@ -1,7 +1,7 @@
 # `@FieldMapper`
-#### An Annotation that can be used to copy properties from one object to another object with intermediate conversions
+#### An Annotation that can be used to copy properties from one object to another object with intermediate conversions. No Big Deal.
 
-The problem field mapper solves is eliminating multiple lines of code for converting one object type to another object type with intermediate conversion
+The problem field mapper solves is eliminating multiple lines of code for converting one object type to another object type with intermediate conversion.
 
 Use cases can be like, when therse is need to convert entity to dto, where some field type should be converted to another type to as client requires.
 
@@ -120,7 +120,7 @@ return FieldMapperUtility.copy(user,UserDto.class);
 
 _Check test package for above example._
 
-### More logic will implemented and samples will be updated...! 
+### More logic will implemented and samples and docs will be updated...! 
 
 #### Programmers who are interested to collaborate are MOST WELCOME
 
