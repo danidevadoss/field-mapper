@@ -120,7 +120,7 @@ return FieldMapperUtility.copy(user,UserDto.class);
 
 _Check test package for above example._
 
-### More logic will implemented and samples and docs will be updated...! 
+### More logics will implemented and samples and docs will be updated...! 
 
 #### Programmers who are interested to collaborate are MOST WELCOME
 
