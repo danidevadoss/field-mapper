@@ -1,11 +1,11 @@
 # `@FieldMapper`
 #### Annotation that can be used to copy properties from one object to another method with intermediate conversions
 
-The problem field mapper solves is eliminating multiple lines of code for converting one type object to another type object with intermediate conversion
+The problem field mapper solves is eliminating multiple lines of code for converting one object type to another object type with intermediate conversion
 
-Use cases like when therse is need to convert entity to dto, where some field type should be converted to another type to as client requires.
+Use cases can be like, when therse is need to convert entity to dto, where some field type should be converted to another type to as client requires.
 
-eg:Let's say we have an entity `User` and dto `UserDto` like below,
+Let's say we have an entity `User` and dto `UserDto` like below,
 
 `User.java`:
 ```java
@@ -43,7 +43,7 @@ public class UserDto{
 
 Now the need is to convert User object to UserDto object
 
-What we typically do?
+### What we typically do?
 
 1) For same data type we will used  **getter and setters** to get value for `User` and set it to `UserDto` object
 2) When we need to set `createdDate` in `UserDto`, we will use conversion method to convert Date object from User object to MM-DD-YY formated string. method to convert will be in `DateUtilty.class` for reusing
@@ -117,7 +117,10 @@ private UserDto userToUserDto(User user){
 return FieldMapperUtility.copy(user,UserDto.class);
 }
 ```
-### More logics will implemented and samples will be updated...!
+
+Please check test package for above example.
+
+### More logic will implemented and samples will be updated...!
 
 ## License
 [GNU](https://www.gnu.org/licenses/gpl-3.0.en.html)
