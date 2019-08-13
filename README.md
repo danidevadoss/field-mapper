@@ -46,10 +46,10 @@ Now the need is to convert User object to UserDto object
 ### What we typically do?
 
 1) For same data type we will used  **getter and setters** to get value for `User` and set it to `UserDto` object
-2) When we need to set `createdDate` in `UserDto`, we will use conversion method to convert Date object from User object to MM-DD-YY formated string. method to convert will be in `DateUtilty.class` for reusing
+2) When we need to set `createdDate` in `UserDto`, we will use conversion method to convert date object from User object to MM-DD-YY formated string. method to convert will be in `DateUtilty.class` for reusing
 3) For `isActive` field in `UserDto` we need to convert _Y/N_ to _true/false_. we create conversion method in any class let's say `CommonUtility` and use that to convert and set the value to `UserDto`
 
-let's look at how code looks below,
+let's look at typical conversion code below,
 
 ```java
 private UserDto userToUserDto(User user){
