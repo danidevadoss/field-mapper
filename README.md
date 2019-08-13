@@ -1,4 +1,4 @@
-# field-mapper
+# `@FieldMapper`
 #### Annotation that can be used to copy properties from one object to another method with intermediate conversions
 
 The problem field mapper solves is eliminating multiple lines of code for converting one type object to another type object with intermediate conversion
