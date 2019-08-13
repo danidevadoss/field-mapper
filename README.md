@@ -5,7 +5,7 @@
 
 The problem field mapper solves is eliminating multiple lines of code for converting one object type to another object type with intermediate conversion.
 
-Use cases can be like, When therse is need to convert entity to dto, Where some field type should be converted to another type as client requires.
+Use cases can be like, When there is need to convert entity to dto, Where some field type should be converted to another type.
 
 Let's say we have an entity `User` and a dto `UserDto` like below,
 
