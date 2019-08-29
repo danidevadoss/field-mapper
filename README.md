@@ -130,7 +130,7 @@ we have three usefull attributes in `@FieldMapper`
 ## What are the constraints?? 
 
 1) Method mentioned in `method` attribute of `@FieldMapper` should be static method
-2) If Java Security Manager restrict permission to access field using java reflection API. This annotation cannot be used. since we will be using Reflection API to access private members to get and set values
+2) If Java Security Manager restricts permission to access field using java reflection API. This annotation cannot be used. since  `FieldMapperUtility.class`  uses Reflection API to access private members to get and set values
 
 ---
 _Check test package for above example._
