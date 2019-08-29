@@ -133,8 +133,8 @@ we have three attributes in `@FieldMapper`
 
 ---
 _Check test package for above example._
-# Thats it???
-### No. More logics will implemented. Samples and docs will be updated...! 
+## So Thats it ???
+### No..! More logics will implemented. Samples and docs will be updated...! 
 
 ## License
 [GNU](https://www.gnu.org/licenses/gpl-3.0.en.html)
