@@ -119,15 +119,22 @@ private UserDto userToUserDto(User user){
 return FieldMapperUtility.copy(user,UserDto.class);
 }
 ```
-## How to configure?? What are the constraints?? 
-### **_Coming Soon...!_**
+## How to configure?
+
+we have three attributes in `@FieldMapper` 
+* `clazz`- class form which the method should be accessed
+* `method`- method name which is to be invoked from class mentioned in clazz
+* `name` -  name is to map different fields having different field name. if field from which value is copied and field from which value is to be copied have same name then this attribute can be skipped. In above example we have used name attribute to map active field in User.class and isActive field in UserDto.class
+
+## What are the constraints?? 
+
+1) Method mentioned in `method` attribute of `@FieldMapper` should be static method
+2) If Java Security Manager restrict permission to access field using java reflection API. This annotation cannot be used. since we will be using Reflection API to access private members to get and set values
 
 ---
 _Check test package for above example._
-
-### More logics will implemented. Samples and docs will be updated...! 
-
-#### _Programmers who are interested to collaborate are MOST WELCOME_
+# Thats it???
+### No. More logics will implemented. Samples and docs will be updated...! 
 
 ## License
 [GNU](https://www.gnu.org/licenses/gpl-3.0.en.html)
