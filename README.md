@@ -121,7 +121,8 @@ return FieldMapperUtility.copy(user,UserDto.class);
 ```
 ## How to configure?
 
-we have three attributes in `@FieldMapper` 
+Just annotate the fields that needs to be copied.
+we have three usefull attributes in `@FieldMapper` 
 * `clazz`- class form which the method should be accessed
 * `method`- method name which is to be invoked from class mentioned in clazz
 * `name` -  name is to map different fields having different field name. if field from which value is copied and field from which value is to be copied have same name then this attribute can be skipped. In above example we have used name attribute to map active field in User.class and isActive field in UserDto.class
