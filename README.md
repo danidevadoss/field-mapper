@@ -85,7 +85,7 @@ public class User{
   @FieldMapper(method="mmddyyToDate", clazz=DateUtilty.class)
   private Date createdDate;
 
-  @FieldMapper(name="active" method="ynToBoolean", clazz=CommonUtility.class)
+  @FieldMapper(name="active" method="booleanToYn", clazz=CommonUtility.class)
   private String active;
 
   //Getter and Setters
